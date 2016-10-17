@@ -7,7 +7,7 @@ debug('booting %s', __filename);
 debug("Environment: %s", config.ENV);
 
 let waterfall = require('async/waterfall');
-let leagueApi = require('league-api');
+let leagueApi = require('./lib/riot-api-wrapper');
 let league = new leagueApi(config.RIOT_API_KEY);
 
 let bot = require('./lib/bot.js');

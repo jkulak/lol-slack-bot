@@ -1,0 +1,8 @@
+var config = {};
+
+config.ENV = process.env.NODE_ENV || 'development';
+config.DEBUG = (config.ENV === 'development') || false;
+
+config.RIOT_API_KEY = process.env.RIOT_API_KEY || 'or_enter_your_key_here';
+
+module.exports = config;

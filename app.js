@@ -20,8 +20,8 @@ server.route({
     method: 'GET',
     path:'/summoner',
     handler: function (request, reply) {
-        return reply('Hola! You are looking for information about summoner...');
 
+        return reply('Hola! You are looking for information about summoner...');
     }
 });
 

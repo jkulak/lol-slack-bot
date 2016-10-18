@@ -1,40 +1,57 @@
 'use strict';
 
-const http = require("http");
-const url = require("url");
-const config = require('./config.js');
-const showGameResults = require('./lib/bot.js').showGameResults;
+// Configuration
+const config = require('./config/config.js');
+
+// External dependecies
 const debug = require('debug')('server');
-const mustache = require('mustache');
+const Hapi = require('hapi');
 
-function sendResponse(res, body) {
+// Local dependecies
+const bot = require('./lib/bot.js');
 
-    const view = {
-        title: "Joe",
-        calc: function() {
-            return 2 + 4;
-        },
-        body
-    };
+const server = new Hapi.Server();
+server.connection({
+    port: config.WEB_SERVER.PORT
+});
 
-    const template = "{{title}} spends {{body}}";
-    var html = mustache.to_html(template, view);
+// Router
+server.route({
+    method: 'GET',
+    path:'/summoner',
+    handler: function (request, reply) {
+        return reply('Hola! You are looking for information about summoner...');
 
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    res.end(html);
-}
+    }
+});
 
-http.createServer(function (req, res) {
+// Start the server
+server.start((err) => {
 
-    const parsedUrl = url.parse(req.url, true); // true to get query as object
-    const queryAsObject = parsedUrl.query;
-    const summonerName = queryAsObject.summonerName;
+    if (err) {
+        throw err;
+    }
+    debug('Server running at: %s', server.info.uri);
+});
 
-    showGameResults(summonerName, function(err, body) {
-        sendResponse(res, body);
-    });
-
-}).listen(config.WEB_SERVER.PORT);
-
-// Console will print the message
-debug('Server started!');
+//
+// function sendResponse(res, body) {
+//
+//     res.writeHead(200, {'Content-Type': 'text/html'});
+//     res.end(body);
+// }
+//
+// http.createServer(function (req, res) {
+//
+//     const parsedUrl = url.parse(req.url, true); // true to get query as object
+//     const queryAsObject = parsedUrl.query;
+//     const summonerName = queryAsObject.summonerName;
+//
+//     bot.showGameResults(summonerName, function(err, body) {
+//         sendResponse(res, body);
+//     });
+//
+// }).listen(config.WEB_SERVER.PORT);
+//
+// // Console will print the message
+// debug('Server started!');

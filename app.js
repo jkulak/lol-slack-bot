@@ -6,6 +6,7 @@ const config = require('./config/config.js');
 // External dependecies
 const debug = require('debug')('server');
 const Hapi = require('hapi');
+const mongojs = require('mongojs');
 
 // Local dependecies
 const bot = require('./lib/bot.js');
@@ -15,23 +16,22 @@ server.connection({
     port: config.WEB_SERVER.PORT
 });
 
-// Router
-server.route({
-    method: 'GET',
-    path:'/summoner',
-    handler: function (request, reply) {
+//Connect to db
+server.app.db = mongojs('hapi-rest-mongo', ['books']);
 
-        return reply('Hola! You are looking for information about summoner...');
-    }
-});
-
-// Start the server
-server.start((err) => {
+//Load plugins and start server
+server.register([
+    require('./routes/summoners')
+], (err) => {
 
     if (err) {
         throw err;
     }
-    debug('Server running at: %s', server.info.uri);
+
+    // Start the server
+    server.start((err) => {
+        debug('Server running at: %s', server.info.uri);
+    });
 });
 
 //

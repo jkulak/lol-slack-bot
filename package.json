@@ -6,7 +6,7 @@
   "dependencies": {
     "async": "^2.1.2",
     "debug": "^2.2.0",
-    "league-api": "^2.0.0"
+    "mustache": "^2.2.1"
   },
   "devDependencies": {
     "babel-core": "^6.17.0",

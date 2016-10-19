@@ -1,37 +1,23 @@
 'use strict';
 
-// Configuration
-const config = require('./config/config.js');
+//
+// External modules 📦
+//
+const debug     = require('debug')('app');
 
-// External dependecies
-const debug = require('debug')('server');
-const hapi = require('hapi');
-// const db = require('./lib/database.js');
+//
+// Local modules 📦
+//
+const serverLib = require('./lib/server');
+const dbLib     = require('./lib/database.js');
+const routes    = require('./routes/summoners');
 
-const server = new hapi.Server();
-server.connection({
-    port: config.WEB_SERVER.PORT
-});
+//
+// Code 🛠
+//
+debug('Starting the application: %s', __filename);
+const server = serverLib.startServer(routes);
 
-//Connect to db
-// server.app.db = db;
-debug('sfsd');
-
-//Load plugins and start server
-server.register([
-    require('./routes/summoners')
-], (err) => {
-
-    if (err) {
-        throw err;
-    }
-
-    // Start the server
-    server.start((err) => {
-        if (err) {
-            debug('Error: %s', err);
-        }
-
-        debug('Started server at: %s', server.info.uri);
-    });
-});
+// Connect to db
+const db = dbLib.startDatabase();
+server.app.db = db;

@@ -1,4 +1,4 @@
-var config = {};
+const config = {};
 
 config.ENV = process.env.NODE_ENV || 'development';
 config.DEBUG = (config.ENV === 'development') || false;
@@ -9,3 +9,7 @@ module.exports = config;
 
 config.WEB_SERVER = {};
 config.WEB_SERVER.PORT = 8081;
+
+config.DB = {};
+config.DB.host = 'mongodb://localhost';
+config.DB.database = 'lol';

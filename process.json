@@ -1,15 +1,16 @@
 {
     "apps" : [{
         "name"        : "lol-slack-bot",
-        "script"      : "./test.js",
+        "script"      : "./app.js",
         "watch"       : true,
         "watch_options": {
             "usePolling": true
         },
-        "max_memory_restart": "250M",
+        "max_memory_restart": "150M",
         "env": {
           "NODE_ENV": "development",
-          "DEBUG": "bot,api,server"
+          /*"DEBUG": "bot,api,server"*/
+          "DEBUG": "*"
         },
         "env_production" : {
            "NODE_ENV": "production"

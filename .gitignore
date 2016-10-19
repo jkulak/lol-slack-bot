@@ -2,3 +2,5 @@ lib/league-api/
 node_modules/
 config.js
 _NOTES.md
+config.js.mongo-express
+_config.js

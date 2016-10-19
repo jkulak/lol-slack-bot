@@ -1,27 +1,38 @@
 'use strict';
 
-// const Boom = require('boom');
-// const uuid = require('node-uuid');
-// const Joi = require('joi');
+// External dependecies
+const Boom = require('boom');
+// const debug = require('debug')('router-summoners');
+
+// Local dependecies
+const bot = require('../lib/bot.js');
 
 exports.register = function(server, options, next) {
 
-    const db = server.app.db;
-
     server.route({
         method: 'GET',
-        path: '/summoners',
+        path: '/summoners/{id}',
         handler: function (request, reply) {
 
-            db.books.find((err, docs) => {
+            //
+            // Using fake version of the function not to call RIOT API
+            //
+            bot.showGameResults_fake(request.params.id, (err, data) => {
 
                 if (err) {
                     return reply(Boom.wrap(err, 'Internal MongoDB error'));
                 }
+            
 
-                reply(docs);
+                if (!data) {
+                    return reply(Boom.notFound());
+                } else {
+
+                    // Save result in the DB
+                    // db.results.save(data);
+                }
+                reply(data);
             });
-
         }
     });
 

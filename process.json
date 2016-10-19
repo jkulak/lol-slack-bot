@@ -1,12 +1,12 @@
 {
     "apps" : [{
         "name"        : "lol-slack-bot",
-        "script"      : "./app.js",
+        "script"      : "./test.js",
         "watch"       : true,
         "watch_options": {
             "usePolling": true
         },
-        "max_memory_restart": "50M",
+        "max_memory_restart": "250M",
         "env": {
           "NODE_ENV": "development",
           "DEBUG": "bot,api,server"

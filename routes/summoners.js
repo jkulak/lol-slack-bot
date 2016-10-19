@@ -3,14 +3,16 @@
 //
 // External modules 📦
 //
-const Boom          = require('boom');
-const debug         = require('debug')('routee-summoners');
+const Boom                  = require('boom');
+const debug                 = require('debug')('routee-summoners');
 
 //
 // Local modules 📦
 //
-const api           = require('../lib/api.js');
-const GameSchema    = require('../lib/game/schema');
+const api                   = require('../lib/api.js');
+const GameSchema            = require('../lib/game/schema');
+const summonersController   = require('../lib/summoner/summoner-controller');
+const gamesController       = require('../lib/game/game-controller');
 
 //
 // Code 🛠
@@ -19,7 +21,19 @@ exports.register = function(server, options, next) {
 
     server.route({
         method: 'GET',
-        path: '/summoners/{id}',
+        path: '/summoners/{name}',
+        handler: summonersController.getId
+    });
+
+    server.route({
+        method: 'GET',
+        path: '/summoners/{name}/games',
+        handler: gamesController.getLastGames
+    });
+
+    server.route({
+        method: 'GET',
+        path: '/v1/summoners/{id}/games',
         handler: function (request, reply) {
 
             //

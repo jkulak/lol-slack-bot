@@ -10,13 +10,13 @@ const debug     = require('debug')('app');
 //
 const serverLib = require('./lib/server');
 const dbLib     = require('./lib/database.js');
-const routes    = require('./routes/summoners');
+const summonersRoutes    = require('./routes/summoners');
 
 //
 // Code 🛠
 //
 debug('Starting the application: %s', __filename);
-const server = serverLib.startServer(routes);
+const server = serverLib.startServer([summonersRoutes]);
 
 // Connect to db
 const db = dbLib.startDatabase();

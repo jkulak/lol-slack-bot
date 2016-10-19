@@ -9,7 +9,7 @@ const debug         = require('debug')('routee-summoners');
 //
 // Local modules 📦
 //
-const bot           = require('../lib/bot.js');
+const api           = require('../lib/api.js');
 const GameSchema    = require('../lib/game/schema');
 
 //
@@ -25,7 +25,7 @@ exports.register = function(server, options, next) {
             //
             // Using fake version of the function not to call RIOT API
             //
-            bot.showGameResults(request.params.id, (err, data) => {
+            api.showGameResults(request.params.id, (err, data) => {
 
                 if (err) {
                     return reply(Boom.wrap(err, 'Internal MongoDB error'));

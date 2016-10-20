@@ -3,14 +3,14 @@
 //
 // External modules 📦
 //
-const debug     = require('debug')('app');
+const debug = require('debug')('app');
 
 //
 // Local modules 📦
 //
 const serverLib = require('./lib/server');
-const dbLib     = require('./lib/database.js');
-const summonersRoutes    = require('./routes/summoners');
+const dbLib = require('./lib/database.js');
+const summonersRoutes = require('./routes/summoners');
 
 //
 // Code 🛠

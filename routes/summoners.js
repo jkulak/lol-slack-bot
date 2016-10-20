@@ -5,6 +5,7 @@
 //
 const Boom                  = require('boom');
 const debug                 = require('debug')('routee-summoners');
+const path                  = require('path');
 
 //
 // Local modules 📦

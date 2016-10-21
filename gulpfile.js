@@ -18,7 +18,7 @@ const gulp = require('gulp'),
 // Use https://www.npmjs.com/package/gulp-useref for production build (updates in HTML)
 
 gulp.task('default', ['clean'], () => {
-    gulp.start('styles', 'images', 'scripts', 'update-html-dependencies');
+    gulp.start('styles', 'images', 'scripts');
 });
 
 gulp.task('update-html-dependencies', () => {
@@ -59,6 +59,10 @@ gulp.task('images', () => {
 
 gulp.task('clean', () => {
     return del(['dist/assets/css', 'dist/assets/js', 'dist/assets/img']);
+});
+
+gulp.task('build-for-production', ['clean'], () => {
+    gulp.start('styles', 'images', 'scripts', 'update-html-dependencies');
 });
 
 // Watch

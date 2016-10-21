@@ -3,8 +3,7 @@ node_js:
     - "node"
     - "6"
 env:
-    - MY_VAR=EverythignIsAwesome
-    - NODE_ENV=TEST
+    - MY_VAR=nope
 before_script:
     - npm install
 sudo: false

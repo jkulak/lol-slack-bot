@@ -1,29 +1,30 @@
 {
-    "name": "lol-slack-bot",
-    "version": "1.0.0",
-    "description": "League of Legends Slack bot",
-    "main": "app.js",
-    "dependencies": {
-        "async": "^2.1.2",
-        "boom": "^4.2.0",
-        "debug": "^2.2.0",
-        "handlebars": "^4.0.5",
-        "hapi": "^15.1.1",
-        "mongoose": "^4.6.4",
-        "vision": "^4.1.0"
-    },
-    "devDependencies": {},
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/jkulak/lol-slack-bot.git"
-    },
-    "author": "Jakub Kułak <jakub.kulak@gmail.com>",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/jkulak/lol-slack-bot/issues"
-    },
-    "homepage": "https://github.com/jkulak/lol-slack-bot#readme"
+  "name": "lol-slack-bot",
+  "version": "1.0.0",
+  "description": "League of Legends Slack bot",
+  "main": "app.js",
+  "dependencies": {
+    "async": "^2.1.2",
+    "boom": "^4.2.0",
+    "debug": "^2.2.0",
+    "handlebars": "^4.0.5",
+    "hapi": "^15.1.1",
+    "inert": "^4.0.2",
+    "mongoose": "^4.6.4",
+    "vision": "^4.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jkulak/lol-slack-bot.git"
+  },
+  "author": "Jakub Kułak <jakub.kulak@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jkulak/lol-slack-bot/issues"
+  },
+  "homepage": "https://github.com/jkulak/lol-slack-bot#readme"
 }

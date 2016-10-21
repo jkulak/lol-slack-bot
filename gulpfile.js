@@ -6,7 +6,9 @@ const gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     babel = require('gulp-babel'),
     rename = require('gulp-rename'),
+    del = require('del'),
     notify = require('gulp-notify'),
+    cache = require('gulp-cache'),
     size = require('gulp-size'),
     autoprefixer = require('gulp-autoprefixer'),
     imagemin = require('gulp-imagemin'),
@@ -14,7 +16,9 @@ const gulp = require('gulp'),
 
 // Use https://www.npmjs.com/package/gulp-useref for production build (updates in HTML)
 
-gulp.task('default', ['styles', 'images']);
+gulp.task('default', ['clean'], () => {
+    gulp.start('styles', 'images');
+});
 
 gulp.task('styles', () => {
     return gulp.src('public/css/*.css')
@@ -32,15 +36,19 @@ gulp.task('styles', () => {
 
 gulp.task('images', () => {
     return gulp.src('public/images/**/*')
-        .pipe(imagemin({
+        .pipe(cache(imagemin({
             optimizationLevel: 3,
             progressive: true,
             interlaced: true
-        }))
+        })))
         .pipe(gulp.dest('dist/assets/img'))
         .pipe(notify({
             message: 'Images task complete'
         }));
+});
+
+gulp.task('clean', () => {
+    return del(['dist/assets/css', 'dist/assets/js', 'dist/assets/img']);
 });
 
 // gulp.task('scripts', () => {

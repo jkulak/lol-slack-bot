@@ -10,7 +10,7 @@ const debug = require('debug')('app');
 //
 const serverLib = require('./lib/server');
 const dbLib = require('./lib/database.js');
-const summonersRoutes = require('./routes/summoners');
+const summonersRoutes = require('./lib/routes/summoners');
 
 //
 // Code 🛠

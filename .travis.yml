@@ -2,19 +2,15 @@ language: node_js
 node_js:
     - "node"
     - "6"
-    - "6.1"
-    - "5.11"
-    - "0.6"
-    - "iojs"
 env:
     - MY_VAR=EverythignIsAwesome
     - NODE_ENV=TEST
 before_script:
     - npm install
-script: gulp build-for-production
 sudo: false
 cache:
     directories:
         - node_modules
 script:
+    - gulp build-for-production
     - npm test

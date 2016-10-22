@@ -1,6 +1,5 @@
 language: node_js
 node_js:
-    - "node"
     - "6"
 env:
     - MY_VAR=nope
@@ -13,3 +12,5 @@ cache:
 script:
     - gulp build-for-production
     - npm test
+after_success:
+    - bash <(curl -s https://codecov.io/bash)

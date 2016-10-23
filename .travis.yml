@@ -14,3 +14,8 @@ script:
     - npm test
 after_success:
     - bash <(curl -s https://codecov.io/bash)
+    - npm install
+    - mkdir build
+    - mv * build
+    - tar -czf package.tgz build
+    - scp package.tgz $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH

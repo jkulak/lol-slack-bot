@@ -22,10 +22,10 @@ TARGET_DIR="/var/www/lol-slack-bot"
 tar -czf /tmp/$PACKAGE_NAME *
 
 # Copy package
-scp /tmp/$PACKAGE_NAME $TARGET_SERVER:/tmp
+scp -o "StrictHostKeyChecking no" /tmp/$PACKAGE_NAME $TARGET_SERVER:/tmp
 
 # Run multiple commands over SSH
-ssh $TARGET_SERVER /bin/bash << EOF
+ssh -o "StrictHostKeyChecking no" $TARGET_SERVER /bin/bash << EOF
 
     # Create directory for new release
     mkdir $TARGET_DIR/releases/$TIME_TAG

@@ -9,11 +9,17 @@ const gulp = require('gulp'),
     imagemin = require('gulp-imagemin'),
     cssnano = require('gulp-cssnano'),
     htmlreplace = require('gulp-html-replace'),
-    jshint = require('gulp-jshint'),
-    concat = require('gulp-concat'),
-    uglify = require('gulp-uglify'),
-    babel = require('gulp-babel'),
-    size = require('gulp-size');
+    gutil = require('gulp-util'),
+    argv = require('minimist')(process.argv),
+    gulpif = require('gulp-if'),
+    prompt = require('gulp-prompt'),
+    rsync = require('gulp-rsync');
+
+// jshintlib = require('gulp-jshint'),
+// concat = require('gulp-concat'),
+// uglify = require('gulp-uglify'),
+// babel = require('gulp-babel'),
+// size = require('gulp-size');
 
 // Use https://www.npmjs.com/package/gulp-useref for production build (updates in HTML)
 
@@ -85,6 +91,60 @@ gulp.task('watch', () => {
 
 });
 
+// Deploy
+
+gulp.task('deploy', function () {
+
+    // Dirs and Files to sync
+    const rsyncPaths = ['lib', 'dist'];
+
+    // Default options for rsync
+    const rsyncConf = {
+        progress: true,
+        incremental: true,
+        relative: true,
+        emptyDirectories: true,
+        recursive: true,
+        clean: true,
+        exclude: [],
+    };
+
+    // Staging
+    if (argv.staging) {
+
+        rsyncConf.hostname = ''; // hostname
+        rsyncConf.username = ''; // ssh username
+        rsyncConf.destination = ''; // path where uploaded files go
+        // Production
+    } else if (argv.production) {
+
+        rsyncConf.hostname = ''; // hostname
+        rsyncConf.username = ''; // ssh username
+        rsyncConf.destination = ''; // path where uploaded files go
+        // Missing/Invalid Target
+    } else {
+        throwError('deploy', gutil.colors.red('Please specify the deployment environment'));
+    }
+
+    // Use gulp-rsync to sync the files
+    return gulp.src(rsyncPaths)
+        .pipe(gulpif(
+            argv.production,
+            prompt.confirm({
+                message: 'Heads Up! Are you SURE you want to push to PRODUCTION?',
+                default: false
+            })
+        ))
+        .pipe(rsync(rsyncConf));
+});
+
+function throwError(taskName, msg) {
+    throw new gutil.PluginError({
+        plugin: taskName,
+        message: msg
+    });
+}
+
 gulp.task('scripts', () => {
     //     const s = size();
     //
@@ -93,8 +153,8 @@ gulp.task('scripts', () => {
     //         .pipe(babel({
     //             presets: ['es2015']
     //         }))
-    //         .pipe(jshint('.jshintrc'))
-    //         .pipe(jshint.reporter('default'))
+    //         .pipe(jshintlib('.jshintrc'))
+    //         .pipe(jshintlib.reporter('default'))
     //         .pipe(concat('main.js'))
     //         .pipe(gulp.dest('public/js'))
     //         .pipe(rename({

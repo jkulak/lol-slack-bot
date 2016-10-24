@@ -2,20 +2,26 @@ language: node_js
 node_js:
     - "6"
 env:
-    - MY_VAR=nope
-before_script:
-    - npm install
+    - MY_VAR=n
+addons:
+    apt:
+        packages:
+            - sshpass
+# before_script:
+#     - npm install
 sudo: false
 cache:
     directories:
         - node_modules
 script:
-    - gulp build-for-production
     - npm test
 after_success:
     - bash <(curl -s https://codecov.io/bash)
+before_deploy:
+    - gulp build-for-production
 deploy:
     provider: script
     script: scripts/deploy.sh
     on:
-        branch: develop
+        branch: deploy
+    skip_cleanup: true

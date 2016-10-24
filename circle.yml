@@ -1,0 +1,12 @@
+machine:
+  node:
+    version: 6
+deployment:
+  production:
+    branch: master
+    commands:
+      - ./scripts/deploy.sh
+  staging:
+    branch: deploy
+    commands:
+      - ./scripts/deploy.sh

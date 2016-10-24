@@ -16,7 +16,7 @@ TIME_TAG=`date +"%y%m%d_%H%M%S"`
 PACKAGE_NAME=package-lol-slack-bot-$TIME_TAG.tar.gz
 
 TARGET_SERVER="107.170.247.180"
-TARGET_DIR="/var/www/lol-slack-bot/releases"
+TARGET_DIR="/var/www/lol-slack-bot"
 
 # Compress all content of the directory
 tar -czf /tmp/$PACKAGE_NAME *

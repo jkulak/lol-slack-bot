@@ -23,5 +23,5 @@ deploy:
     provider: script
     script: scripts/deploy.sh
     on:
-        branch: deploy
+        branch: master
     skip_cleanup: true

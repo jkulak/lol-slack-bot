@@ -4,12 +4,12 @@
         "script"      : "./app.js",
         "watch"       : true,
         "watch_options": {
-            "usePolling": true
+            "usePolling": true,
+            "followSymlinks": false
         },
         "max_memory_restart": "150M",
         "env": {
           "NODE_ENV": "development",
-          /*"DEBUG": "bot,api,server"*/
           "DEBUG": "*"
         },
         "env_production" : {

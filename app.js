@@ -16,7 +16,7 @@ const staticRoutes = require('./lib/routes/static');
 //
 // Code 🛠
 //
-debug('Starting the application: %s', __filename);
+debug('Starting the application from file: %s', __filename);
 const server = serverLib.startServer([summonersRoutes, staticRoutes]);
 
 // Connect to db

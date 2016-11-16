@@ -20,7 +20,7 @@ You can use https://github.com/jkulak/lol-slack-bot-kitchen to provision your en
 4. `$ cp lib/config/config.js.example lib/config/config.js` - create your configuration file by copying the given example file
 5. Update your `config.js` file with your RIOT_API_KEY
 6. `$ pm2 start process.json` - start the application at the default port 8081
-7. You application is now available at http://YOU_SERVER_IP:8018
+7. You application is now available at http://YOU_SERVER_IP:8081
 
 Currently only one route is available, try: http://YOUR_SERVER_IP:8081/summoners/almostroy/games
 
@@ -30,3 +30,7 @@ Currently only one route is available, try: http://YOUR_SERVER_IP:8081/summoners
 [![StackShare](http://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](http://stackshare.io/jkulak/lol-slack-bot)
 [![Dependecies](https://david-dm.org/jkulak/lol-slack-bot.svg)](https://david-dm.org/jkulak/lol-slack-bot)
 [![codecov](https://codecov.io/gh/jkulak/lol-slack-bot/branch/master/graph/badge.svg)](https://codecov.io/gh/jkulak/lol-slack-bot)
+
+# Working version
+
+Try: http://lol-slack-bot.webascrazy.net/summoners/almostroy/games (currently supports only EUW)

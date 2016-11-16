@@ -11,5 +11,5 @@ config.WEB_SERVER = {};
 config.WEB_SERVER.PORT = 8081;
 
 config.DB = {};
-config.DB.host = 'mongodb://localhost';
-config.DB.database = 'lol';
+config.DB.host = process.env.MONGO_HOST || 'mongo';
+config.DB.database = process.env.MONGO_DATABASE || 'lol';

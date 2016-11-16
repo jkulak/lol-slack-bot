@@ -1,6 +1,6 @@
 lib/league-api/
 node_modules/
-config.js
 _NOTES.md
 _config.js.mongo-express
 dist/
+docker-compose.yml

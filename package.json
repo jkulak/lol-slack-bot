@@ -11,6 +11,7 @@
     "hapi": "^15.1.1",
     "inert": "^4.0.2",
     "mongoose": "^4.6.4",
+    "pm2": "^2.1.5",
     "vision": "^4.1.0"
   },
   "devDependencies": {
@@ -42,8 +43,7 @@
   },
   "scripts": {
     "test": "mocha --recursive",
-    "start": "pm2 start process.json",
-    "jshint": "jshint app.js"
+    "start": "./node_modules/.bin/pm2 start --no-daemon process.json"
   },
   "repository": {
     "type": "git",

@@ -1,0 +1,22 @@
+version: "2"
+services:
+    web:
+        build:
+            context: .
+            dockerfile: Dockerfile.dev
+        command: ./node_modules/.bin/pm2 start --no-daemon process.json
+        environment:
+            - MONGO_HOST=mongo_db
+            - MONGO_DATABASE=lol
+        depends_on:
+            - mongo_db
+        volumes:
+            - .:/app
+            - /app/node_modules
+        ports:
+            - 20202:8081
+    mongo_db:
+        image: mongo
+        ports:
+            - 27017:27017
+        # migrations

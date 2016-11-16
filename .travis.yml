@@ -7,7 +7,7 @@ addons:
     apt:
         packages:
             - sshpass
-        srcclr: true
+    srcclr: true
 # before_script:
 #     - npm install
 sudo: false

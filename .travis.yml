@@ -22,7 +22,7 @@ before_deploy:
     - gulp build-for-production
 deploy:
     provider: script
-    script: scripts/deploy.sh
+    script: scripts/travis-deploy.sh
     on:
         branch: master
     skip_cleanup: true

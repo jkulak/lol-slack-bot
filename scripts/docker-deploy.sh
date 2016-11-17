@@ -9,5 +9,10 @@ ssh -oStrictHostKeyChecking=no deploy@$DEPLOY_HOST << EOF
     docker rm web || true
     docker rmi jkulak/lol-slack-bot:current || true
     docker tag jkulak/lol-slack-bot:latest jkulak/lol-slack-bot:current
-    docker run -d --restart always --name web -p 3000:3000 jkulak/lol-slack-bot:current
+    docker run -d --restart always --name web -p 20202:8081 jkulak/lol-slack-bot:current
 EOF
+
+
+# docker-compose stop && docker-compose rm && docker-compose create && docker-compose start
+# or
+# docker-compose down && docker-compose up -d

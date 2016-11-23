@@ -16,7 +16,7 @@ services:
             - .:/app
             - /app/node_modules
         ports:
-            - 20202:8081
+            - 20201:8081
     mongo_db:
         image: mongo
         ports:

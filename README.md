@@ -31,6 +31,7 @@ Currently only one route is available, try: http://YOUR_SERVER_IP:8081/summoners
 
 CircleCI deployment, with Docker: [![CircleCI](https://circleci.com/gh/jkulak/lol-slack-bot.svg?style=svg)](https://circleci.com/gh/jkulak/lol-slack-bot)
 
-# Working version
+# Working versions
 
-Try: http://lol-slack-bot.webascrazy.net/summoners/almostroy/games (currently supports only EUW)
+* Deployed with TravisCI: http://lol-slack-bot.webascrazy.net/summoners/almostroy/games
+* Deployed with CircleCI: http://lol-bot.webascrazy.net/summoners/almostroy/games

@@ -9,7 +9,7 @@ ssh -oStrictHostKeyChecking=no deploy@$DEPLOY_HOST << EOF
     docker rm web || true
     docker rmi jkulak/lol-slack-bot:current || true
     docker tag jkulak/lol-slack-bot:latest jkulak/lol-slack-bot:current
-    docker run -d --restart always --name web -p 20201:8081 jkulak/lol-slack-bot:current
+    docker run -d --restart always --name lol-slack-bot-web -p 20201:8081 jkulak/lol-slack-bot:current
 EOF
 
 

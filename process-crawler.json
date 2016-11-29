@@ -1,0 +1,19 @@
+{
+    "apps" : [{
+        "name"        : "lol-crawler",
+        "script"      : "./lib/crawler.js",
+        "watch"       : true,
+        "watch_options": {
+            "usePolling": true,
+            "followSymlinks": false
+        },
+        "max_memory_restart": "150M",
+        "env": {
+          "NODE_ENV": "development",
+          "DEBUG": "*"
+        },
+        "env_production" : {
+           "NODE_ENV": "production"
+        }
+    }]
+}

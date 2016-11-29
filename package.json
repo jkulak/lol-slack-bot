@@ -30,7 +30,8 @@
   },
   "scripts": {
     "test": "mocha --recursive",
-    "start": "./node_modules/.bin/pm2 start --no-daemon process.json"
+    "start": "./node_modules/.bin/pm2 start --no-daemon process-web.json",
+    "start-crawler": "./node_modules/.bin/pm2 start --no-daemon process-crawler.json"
   },
   "repository": {
     "type": "git",

@@ -7,15 +7,18 @@ Prerequisite: You have your API_RIOT_KEY (you can get it here: https://developer
 ## 🐳 If you are using Docker
 
 1. Clone this repository `$ git clone https://github.com/jkulak/lol-slack-bot`
-* Create a `docker-compose.yml` file, using the provided template `docker-compose.yml.example` and fill it in with yout configuration options
+* Create a `docker-compose.yml` file, using the provided template `docker-compose.yml.example` and fill it in with your configuration
 * Run `$ docker-compose up`
+* Log-in to your running container `docker exec -ti lolslackbot_web_1 sh`
+* `$ npm install` - install dependencies
+* `$ ./node_modules/.bin/gulp` - build the application
 
 ## 🍳 If you are using Chef
 
 1. Provision your environment using: https://github.com/jkulak/lol-slack-bot-kitchen
 * `$ git clone https://github.com/jkulak/lol-slack-bot` - clone this repository to your preferred location on the provisioned server (`/var/www/lol-slack-bot` is my choice)
 * `$ npm install` - install dependencies
-* `$ gulp` - build the application
+* `$ ./node_modules/.bin/gulp` - build the application
 * Update your `config.js` file with your RIOT_API_KEY (or set RIOT_API_KEY environment variable)
 * `$ pm2 start process.json` - start the application at the default port 8081
 * You application is now available at http://YOU_SERVER_IP:8081

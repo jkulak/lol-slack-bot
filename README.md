@@ -36,5 +36,4 @@ CircleCI deployment, with Docker: [![CircleCI](https://circleci.com/gh/jkulak/lo
 
 # Working versions
 
-* Deployed with TravisCI: http://lol-slack-bot.webascrazy.net/summoners/almostroy/games
 * Deployed with CircleCI: http://lol-bot.webascrazy.net/summoners/almostroy/games

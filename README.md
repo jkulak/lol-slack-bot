@@ -1,4 +1,4 @@
-Project discontinued, won't work with current version of RIOT Games API.
+# Project discontinued, won't work with current version of RIOT Games API.
 
 # 📃 Installation
 
@@ -27,14 +27,9 @@ Currently only one route is available, try: http://YOUR_SERVER_IP:8081/summoners
 
 # We love badges
 
-[![Build Status](https://travis-ci.org/jkulak/lol-slack-bot.svg?branch=master)](https://travis-ci.org/jkulak/lol-slack-bot)
+CircleCI deployment, with Docker: [![CircleCI](https://circleci.com/gh/jkulak/lol-slack-bot.svg?style=svg)](https://circleci.com/gh/jkulak/lol-slack-bot)
+
 [![GitHub version](https://badge.fury.io/gh/jkulak%2Flol-slack-bot.svg)](https://badge.fury.io/gh/jkulak%2Flol-slack-bot)
 [![StackShare](http://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](http://stackshare.io/jkulak/lol-slack-bot)
 [![Dependecies](https://david-dm.org/jkulak/lol-slack-bot.svg)](https://david-dm.org/jkulak/lol-slack-bot)
 [![codecov](https://codecov.io/gh/jkulak/lol-slack-bot/branch/master/graph/badge.svg)](https://codecov.io/gh/jkulak/lol-slack-bot)
-
-CircleCI deployment, with Docker: [![CircleCI](https://circleci.com/gh/jkulak/lol-slack-bot.svg?style=svg)](https://circleci.com/gh/jkulak/lol-slack-bot)
-
-# Working versions
-
-* Deployed with CircleCI: http://lol-bot.webascrazy.net/summoners/almostroy/games
